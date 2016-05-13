@@ -7,7 +7,7 @@ using std::cin;
 using std::endl;
 
 void menu();
-int* ejercicio1(int*,int);
+double* ejercicio1(double*);
 void ejercicio2();
 
 int main(int argc, char*agrv[]){
@@ -23,7 +23,7 @@ void menu(){
 	cin >> opc;
 	switch(opc){
 		case 1:
-			int* polinomio = new int[3];
+			double* polinomio = new double[3];
 			int size = 3;
 			cout << "Polinomio";
 			cout << "X^2 = ";
@@ -33,25 +33,25 @@ void menu(){
 			cout << "Constante = ";
 			cin >> polinomio[2];
 			for (int i = 0; i < 2; i++){
-				ejercicio1(polinomio,size)[i] *= -1;
+				ejercicio1(polinomio)[i] *= -1;
 			}
 			cout << "X^2 " << polinomio[0] << " + X " << polinomio[1] << " + " << polinomio[2] << endl;
-			cout << "(X + " << ejercicio1(polinomio,size)[0] << ")(X + " << ejercicio1(polinomio,size)[1] << ")" << endl;
+			cout << "(X + " << ejercicio1(polinomio)[0] << ")(X + " << ejercicio1(polinomio)[1] << ")" << endl;
 			delete [] polinomio;
 	}
 }
 
-int* ejercicio1(int* polinomio, int size){
+double* ejercicio1(double* polinomio){
 	if(polinomio[0] == 0){
 		return polinomio;
 	} else {
-		int* resultado = new int[2];
-		int raizCuadrada = (pow(polinomio[1],2) + 4 * polinomio[0] * polinomio[2]);
+		double* resultado = new double[2];
+		int raizCuadrada = (pow(polinomio[1]*polinomio[1]) - (4 * polinomio[0] * polinomio[2]));
 		if(raizCuadrada < 0){
 			return polinomio;
 		} else {
-			resultado[0] = (-1 * polinomio[1] + sqrt(raizCuadrada)/ 2 * polinomio[0]);
-			resultado[1] = (-1 * polinomio[1] - sqrt(raizCuadrada)/ 2 * polinomio[0]);
+			resultado[0] = (-1 * polinomio[1] + sqrt(raizCuadrada)/ (2 * polinomio[0]));
+			resultado[1] = (-1 * polinomio[1] - sqrt(raizCuadrada)/ (2 * polinomio[0]));
 			return resultado;
 		}
 	}
