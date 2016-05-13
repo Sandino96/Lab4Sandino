@@ -66,13 +66,25 @@ void ejercicio2(){
 	cout << "Verbo original: ";
 	cin >> verboOriginal;
 	int size = strlen(verboOriginal);
-	char* verboPasado = new char[size-2];
-	char* verboPresente = new char[size-2];
-	char* verboFuturo = new char[size-2];
+	char* verboModificado = new char[size-2];
 	if (verboOriginal[size-1] != 'r'){
 		cout << "No es verbo" << endl;
 	} else if (verboOriginal[size-2] == 'a'){
-		strncpy(verboPasado, verboOriginal, size-2);
-		cout << verboPasado << "é	" << verboPresente << "o		" << verboFuturo << "aré" endl;
+		strncpy(verboModificado, verboOriginal, size-2);
+		cout << "Pasado: " <<verboModificado << "é" << endl;
+		cout << "Presente: " << verboModificado << "o" <<endl;
+		cout << "Futuro: " << verboModificado << "aré" << endl;
+	} else if (verboOriginal[size-2] == 'e'){
+		strncpy(verboModificado, verboOriginal, size-2);
+		cout << "Pasado: " <<verboModificado << "í" << endl;
+		cout << "Presente: " << verboModificado << "o" <<endl;
+		cout << "Futuro: " << verboModificado << "eré" << endl;
+	} else if (verboOriginal[size-2] == 'i'){
+		strncpy(verboModificado, verboOriginal, size-2);
+		cout << "Pasado: " <<verboModificado << "í" << endl;
+		cout << "Presente: " << verboModificado << "o" <<endl;
+		cout << "Futuro: " << verboModificado << "iré" << endl;
 	}
+	delete[] verboModificado;
+	delete[] verboOriginal;
 }
