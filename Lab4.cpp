@@ -46,12 +46,12 @@ double* ejercicio1(double* polinomio){
 		return polinomio;
 	} else {
 		double* resultado = new double[2];
-		int raizCuadrada = (pow(polinomio[1]*polinomio[1]) - (4 * polinomio[0] * polinomio[2]));
+		int raizCuadrada = (pow(polinomio[1],2) - (4 * polinomio[0] * polinomio[2]));
 		if(raizCuadrada < 0){
 			return polinomio;
 		} else {
-			resultado[0] = (-1 * polinomio[1] + sqrt(raizCuadrada)/ (2 * polinomio[0]));
-			resultado[1] = (-1 * polinomio[1] - sqrt(raizCuadrada)/ (2 * polinomio[0]));
+			resultado[0] = ((-1 * polinomio[1] + sqrt(raizCuadrada))/ (2 * polinomio[0]));
+			resultado[1] = ((-1 * polinomio[1] - sqrt(raizCuadrada))/ (2 * polinomio[0]));
 			return resultado;
 		}
 	}
