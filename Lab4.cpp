@@ -17,12 +17,13 @@ int main(int argc, char*agrv[]){
 
 void menu(){
 	int opc;
-	cout <<  "1.-Ejercicio 1" << endl;
-	cout <<  "2.-Ejercicio 2" << endl;
-	cout <<  "Opcion: ";
-	cin >> opc;
-	switch(opc){
-		case 1:
+	while(opc < 3){
+		cout <<  "1.-Ejercicio 1" << endl;
+		cout <<  "2.-Ejercicio 2" << endl;
+		cout << "3.-Salir" << endl;
+		cout <<  "Opcion: ";
+		cin >> opc;
+		if(opc == 1){
 			double* polinomio = new double[3];
 			int size = 3;
 			cout << "Polinomio";
@@ -38,6 +39,9 @@ void menu(){
 			cout << "X^2 " << polinomio[0] << " + X " << polinomio[1] << " + " << polinomio[2] << endl;
 			cout << "(X + " << ejercicio1(polinomio)[0] << ")(X + " << ejercicio1(polinomio)[1] << ")" << endl;
 			delete [] polinomio;
+		} else if (opc == 2){
+			ejercicio2();
+		}
 	}
 }
 
@@ -54,5 +58,21 @@ double* ejercicio1(double* polinomio){
 			resultado[1] = ((-1 * polinomio[1] - sqrt(raizCuadrada))/ (2 * polinomio[0]));
 			return resultado;
 		}
+	}
+}
+
+void ejercicio2(){
+	char* verboOriginal = new char[35];
+	cout << "Verbo original: ";
+	cin >> verboOriginal;
+	int size = strlen(verboOriginal);
+	char* verboPasado = new char[size-2];
+	char* verboPresente = new char[size-2];
+	char* verboFuturo = new char[size-2];
+	if (verboOriginal[size-1] != 'r'){
+		cout << "No es verbo" << endl;
+	} else if (verboOriginal[size-2] == 'a'){
+		strncpy(verboPasado, verboOriginal, size-2);
+		cout << verboPasado << "é	" << verboPresente << "o		" << verboFuturo << "aré" endl;
 	}
 }
